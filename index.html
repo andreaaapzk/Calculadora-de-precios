@@ -9,15 +9,14 @@
         :root { --rosa-fondo: #fff0f3; --rosa-tarjeta: #f8d7da; --rosa-ovalo: #f5c6cb; --rosa-pastel: #ffb6c1; }
         body { background-color: var(--rosa-fondo); padding: 10px; font-family: sans-serif; }
         .card { border-radius: 20px; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.05); background: white; margin-bottom: 15px; }
-        .foto-card { background: var(--rosa-tarjeta); border-radius: 15px; padding: 10px; text-align: center; }
-        .img-ref { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 8px; }
+        .foto-card { background: var(--rosa-tarjeta); border-radius: 15px; padding: 10px; text-align: center; margin-bottom: 15px; }
+        .img-ref { width: 100%; height: 180px; object-fit: contain; background: white; border-radius: 10px; margin-bottom: 8px; }
         .badge-ovalo { background-color: var(--rosa-ovalo); color: #721c24; padding: 4px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; display: inline-block; }
         .btn-personalizado { background-color: var(--rosa-pastel); border: none; color: white; padding: 12px; }
     </style>
 </head>
 <body>
 <div class="container-fluid">
-    <!-- Calculadora -->
     <div class="card p-3">
         <h5 class="text-center" style="color: var(--rosa-pastel);">Calculadora Andyyy Studio</h5>
         <select id="tipo" class="form-select my-2" onchange="actualizarBase()">
@@ -25,7 +24,7 @@
             <option value="lienzo">Lienzo</option>
         </select>
         <input type="number" id="base" class="form-control mb-2" value="125">
-        <select id="nivel" class="form-select mb-2">
+        <select id="nivel" class="form-select mb-2" id="nivel">
             <option value="200">Básico</option>
             <option value="350">Intermedio</option>
             <option value="500">Premium</option>
@@ -34,11 +33,12 @@
         <div id="resultado" class="text-center h3 mt-2" style="color: var(--rosa-pastel);">Total: $0</div>
     </div>
 
-    <!-- Galería -->
+    <!-- Galería completa para celular -->
     <div class="row g-2">
-        <div class="col-6"><div class="foto-card"><img src="img/funda_morat.jpeg" class="img-ref"><div class="badge-ovalo">Básico</div></div></div>
-        <div class="col-6"><div class="foto-card"><img src="img/funda_chicas_superpoderosas.jpeg" class="img-ref"><div class="badge-ovalo">Intermedio</div></div></div>
-        <!-- Agrega aquí tus otras fotos -->
+        <div class="col-6"><div class="foto-card"><img src="img/funda_morat.jpeg" class="img-ref"><br><div class="badge-ovalo">Básico</div></div></div>
+        <div class="col-6"><div class="foto-card"><img src="img/funda_chicas_superpoderosas.jpeg" class="img-ref"><br><div class="badge-ovalo">Intermedio</div></div></div>
+        <div class="col-6"><div class="foto-card"><img src="img/funda_hummingbird.jpeg" class="img-ref"><br><div class="badge-ovalo">Premium</div></div></div>
+        <div class="col-6"><div class="foto-card"><img src="img/esqueleto_rana.jpeg" class="img-ref"><br><div class="badge-ovalo">Premium</div></div></div>
     </div>
 </div>
 <script>
