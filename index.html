@@ -2,84 +2,43 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Calculadora de Arte - Andrea</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andyyy Studio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root { --rosa-fondo: #fff0f3; --rosa-tarjeta: #f8d7da; --rosa-ovalo: #f5c6cb; --rosa-pastel: #ffb6c1; }
-        body { background-color: var(--rosa-fondo); padding: 20px; font-family: sans-serif; }
-        
-        .card { border-radius: 20px; border: none; box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3); background: white; }
-        
-        /* Tarjetas de fotos con el color que pediste */
-        .foto-card { 
-            background: var(--rosa-tarjeta); 
-            border-radius: 20px; 
-            padding: 12px; 
-            text-align: center;
-            height: 100%;
-        }
-        .img-ref { 
-            width: 100%; height: 180px; object-fit: contain; 
-            background-color: white; border-radius: 15px; margin-bottom: 10px;
-        }
-        
-        /* El óvalo para el texto */
-        .badge-ovalo {
-            background-color: var(--rosa-ovalo);
-            color: #721c24;
-            padding: 5px 20px;
-            border-radius: 50px; /* Esto crea la forma ovalada */
-            font-weight: 600;
-            font-size: 0.85rem;
-            display: inline-block;
-        }
-
-        .btn-personalizado { background-color: var(--rosa-pastel); border: none; color: white; transition: 0.3s; }
-        .btn-personalizado:hover { background-color: #ff9fb1; }
-        .price-display { font-size: 2.5rem; font-weight: bold; color: var(--rosa-pastel); }
+        body { background-color: var(--rosa-fondo); padding: 10px; font-family: sans-serif; }
+        .card { border-radius: 20px; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.05); background: white; margin-bottom: 15px; }
+        .foto-card { background: var(--rosa-tarjeta); border-radius: 15px; padding: 10px; text-align: center; }
+        .img-ref { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 8px; }
+        .badge-ovalo { background-color: var(--rosa-ovalo); color: #721c24; padding: 4px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; display: inline-block; }
+        .btn-personalizado { background-color: var(--rosa-pastel); border: none; color: white; padding: 12px; }
     </style>
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card p-4">
-                <h4 class="text-center" style="color: var(--rosa-pastel);">Calculadora</h4>
-                <select id="tipo" class="form-select my-3" onchange="actualizarBase()">
-                    <option value="funda">Funda</option>
-                    <option value="lienzo">Lienzo</option>
-                </select>
-                <div class="mb-3">
-                    <label>Costo material ($):</label>
-                    <input type="number" id="base" class="form-control" value="125">
-                </div>
-                <select id="nivel" class="form-select mb-3">
-                    <option value="200">Básico</option>
-                    <option value="350">Intermedio</option>
-                    <option value="500">Premium</option>
-                </select>
-                <button onclick="calcular()" class="btn btn-personalizado w-100">Calcular</button>
-                <div id="resultado" class="price-display text-center mt-3">$0</div>
-            </div>
-        </div>
+    <!-- Calculadora -->
+    <div class="card p-3">
+        <h5 class="text-center" style="color: var(--rosa-pastel);">Calculadora Andyyy Studio</h5>
+        <select id="tipo" class="form-select my-2" onchange="actualizarBase()">
+            <option value="funda">Funda</option>
+            <option value="lienzo">Lienzo</option>
+        </select>
+        <input type="number" id="base" class="form-control mb-2" value="125">
+        <select id="nivel" class="form-select mb-2">
+            <option value="200">Básico</option>
+            <option value="350">Intermedio</option>
+            <option value="500">Premium</option>
+        </select>
+        <button onclick="calcular()" class="btn btn-personalizado w-100">Calcular Precio</button>
+        <div id="resultado" class="text-center h3 mt-2" style="color: var(--rosa-pastel);">Total: $0</div>
+    </div>
 
-        <div class="col-md-9">
-            <div class="card p-4">
-                <h5 style="color: var(--rosa-pastel);" class="mb-4">Guía Visual Real</h5>
-                <div class="row g-3">
-                    <div class="col-md-3"><div class="foto-card"><img src="img/funda_morat.jpeg" class="img-ref"><div class="badge-ovalo">Básico</div></div></div>
-                    <div class="col-md-3"><div class="foto-card"><img src="img/funda_ale.jpeg" class="img-ref"><div class="badge-ovalo">Básico</div></div></div>
-                    <div class="col-md-3"><div class="foto-card"><img src="img/funda_chicas_superpoderosas.jpeg" class="img-ref"><div class="badge-ovalo">Intermedio</div></div></div>
-                    <div class="col-md-3"><div class="foto-card"><img src="img/funda_colibri.jpeg" class="img-ref"><div class="badge-ovalo">Intermedio</div></div></div>
-                    <div class="col-md-3"><div class="foto-card"><img src="img/funda_perro.jpeg" class="img-ref"><div class="badge-ovalo">Premium</div></div></div>
-                    <div class="col-md-3"><div class="foto-card"><img src="img/lienzo_spiderman.jpeg" class="img-ref"><div class="badge-ovalo">Básico</div></div></div>
-                    <div class="col-md-3"><div class="foto-card"><img src="img/lienzo_pareja_morado.jpeg" class="img-ref"><div class="badge-ovalo">Básico</div></div></div>
-                    <div class="col-md-3"><div class="foto-card"><img src="img/lienzo_pareja_cu.jpeg" class="img-ref"><div class="badge-ovalo">Intermedio</div></div></div>
-                    <div class="col-md-3"><div class="foto-card"><img src="img/lienzo_pareja_moto.jpeg" class="img-ref"><div class="badge-ovalo">Premium</div></div></div>
-                    <div class="col-md-3"><div class="foto-card"><img src="img/esqueleto_rana.jpeg" class="img-ref"><div class="badge-ovalo">Premium</div></div></div>
-                </div>
-            </div>
-        </div>
+    <!-- Galería -->
+    <div class="row g-2">
+        <div class="col-6"><div class="foto-card"><img src="img/funda_morat.jpeg" class="img-ref"><div class="badge-ovalo">Básico</div></div></div>
+        <div class="col-6"><div class="foto-card"><img src="img/funda_chicas_superpoderosas.jpeg" class="img-ref"><div class="badge-ovalo">Intermedio</div></div></div>
+        <!-- Agrega aquí tus otras fotos -->
     </div>
 </div>
 <script>
@@ -87,8 +46,7 @@
     function calcular() {
         const base = parseInt(document.getElementById('base').value);
         const nivel = parseInt(document.getElementById('nivel').value);
-        let total = Math.ceil((base + nivel) / 10) * 10;
-        document.getElementById('resultado').innerText = '$' + total;
+        document.getElementById('resultado').innerText = 'Total: $' + (Math.ceil((base + nivel) / 10) * 10);
     }
 </script>
 </body>
